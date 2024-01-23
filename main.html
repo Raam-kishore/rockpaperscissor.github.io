@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors Game</title>
+    <script>
+   
+        var win = 0;
+        var draw = 0;
+        var lose = 0;
+        var choices = ['rock', 'paper', 'scissor'];
+
+        function playgame_easy(player_move) {
+            var choice = Math.floor(Math.random() * choices.length);
+            var draw_para = document.getElementById('draw');
+            var win_para = document.getElementById('win');
+            var lose_para = document.getElementById('lost'); // Corrected ID name
+            var temp=document.getElementById('temp');
+            final=document.getElementById('final');
+            var computer_choice = choices[choice];
+            if (player_move === computer_choice) {
+                draw += 1;
+                draw_para.innerHTML = "Draw: " + draw;
+                temp.innerHTML="Game is draw "
+            } else if (player_move === "rock" && computer_choice === "scissor") {
+                win += 1;
+                temp.innerHTML="you won the game player :🪨 computer:✂️"
+                win_para.innerHTML = "Win: " + win;
+            } else if (player_move === "paper" && computer_choice === "rock") {
+                win += 1;
+                temp.innerHTML="you won the game player :📃 computer:🪨"
+                win_para.innerHTML = "Win: " + win;
+            } else if (player_move === "scissor" && computer_choice === "paper") {
+                win += 1;
+                temp.innerHTML="you won the game player :✂️ computer:📃"
+                win_para.innerHTML = "Win: " + win;
+            } else if (computer_choice === "rock" && player_move === "scissor") {
+                lose += 1;
+                temp.innerHTML="you lost the game computer :🪨 player:✂️"
+                lose_para.innerHTML = "Lost: " + lose; // Corrected text for losses
+            } else if (computer_choice === "paper" && player_move === "rock") {
+                lose += 1;
+                temp.innerHTML="you lost the game computer :📃 player:🪨"
+                lose_para.innerHTML = "Lost: " + lose; // Corrected text for losses
+            } else if (computer_choice === "scissor" && player_move === "paper") {
+                lose += 1;
+                temp.innerHTML="you lost the game computer :✂️ player:📃"
+                 win_para.innerHTML = "Win: " + win;
+                lose_para.innerHTML = "Lost: " + lose; // Corrected text for losses
+            }
+            if (win>=5)
+        {
+            final.innerHTML="you won the match";
+        }
+        else if(lose>=5)
+        {
+            final.innerHtML="You lose the math";
+        }
+        }
+        function reset_score(){
+            let win=document.getElementById('win');
+            let lose=document.getElementById('lost');
+            let draw=document.getElementById('draw');
+            let temp=document.getElementById('temp');
+            temp.innerText=""
+            win.innerHTML="Win:0";
+            lose.innerHTML="lose:0";
+            draw.innerHTML="draw:0";
+
+
+        }
+        
+
+    </script>
+    <style>
+        body {
+            background-color: #51e2f5;
+        }
+
+        h1 {
+            text-align: center;
+            text-shadow: 2px 2px aqua;
+        }
+img
+{  max-width:100%;
+    height:auto;
+}
+        .main {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            align-items:center;
+            flex-direction:row;
+            gap:5px; 
+        }      
+
+        button {
+            margin: 0;
+            width:165px;
+        }
+        .score
+        {
+            font-size:2rem;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            gap:15px;
+            flex-direction:row;
+            margin-top:5px;
+        }
+        .reset
+        {
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            flex-direction:row;
+            margin-top:50px;
+           
+        }
+        .reset-button
+        {
+            padding:10px;
+            background-color: forestgreen;
+            color:whitesmoke;
+            border:none;
+            
+        }
+        .reset-button:hover
+        {
+            opacity:0.9;
+        }
+#temp{
+    text-align:center;
+}
+    </style>
+</head>
+<body>
+    <h1>ROCK PAPER SCISSOR GAME</h1>
+    <div class="main">
+        <button><img src="rock.jpg" width="150" height="150" onclick="playgame_easy('rock')"></button>
+        <button><img src="paper.jpg" width="150" height="150" onclick="playgame_easy('paper')" ></button>
+        <button><img src="scissor.jpg" width="150" height="150" onclick="playgame_easy('scissor')"></button>
+       
+    </div>
+   <div class="reset">
+    <button class="reset-button" onclick="reset_score()">RESET SCORE</button>
+</div>
+<p id="temp"></p>
+    <div class="score">
+  
+    <p id="win">Win: 0</p>
+    <p id="lost">Lost: 0</p>
+    <p id="draw">Draw: 0</p>
+   </div> 
+<p id="final"></p>
+</body>
+</html>
