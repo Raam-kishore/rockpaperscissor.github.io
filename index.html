@@ -15,7 +15,7 @@
             var choice = Math.floor(Math.random() * choices.length);
             var draw_para = document.getElementById('draw');
             var win_para = document.getElementById('win');
-            var lose_para = document.getElementById('lost'); // Corrected ID name
+            var lose_para = document.getElementById('lost'); 
             var temp=document.getElementById('temp');
             final=document.getElementById('final');
             var computer_choice = choices[choice];
@@ -38,16 +38,16 @@
             } else if (computer_choice === "rock" && player_move === "scissor") {
                 lose += 1;
                 temp.innerHTML="you lost the game computer :🪨 player:✂️"
-                lose_para.innerHTML = "Lost: " + lose; // Corrected text for losses
+                lose_para.innerHTML = "Lost: " + lose; 
             } else if (computer_choice === "paper" && player_move === "rock") {
                 lose += 1;
                 temp.innerHTML="you lost the game computer :📃 player:🪨"
-                lose_para.innerHTML = "Lost: " + lose; // Corrected text for losses
+                lose_para.innerHTML = "Lost: " + lose; 
             } else if (computer_choice === "scissor" && player_move === "paper") {
                 lose += 1;
                 temp.innerHTML="you lost the game computer :✂️ player:📃"
                  win_para.innerHTML = "Win: " + win;
-                lose_para.innerHTML = "Lost: " + lose; // Corrected text for losses
+                lose_para.innerHTML = "Lost: " + lose; 
             }
             if (win>=5)
         {
@@ -58,19 +58,20 @@
             final.innerHtML="You lose the math";
         }
         }
-        function reset_score(){
-            let win=document.getElementById('win');
-            let lose=document.getElementById('lost');
-            let draw=document.getElementById('draw');
-            let temp=document.getElementById('temp');
-            temp.innerText=""
-            win.innerHTML="Win:0";
-            lose.innerHTML="lose:0";
-            draw.innerHTML="draw:0";
-            final.innerHTML="";
+        function reset_score() {
+    var win_para = document.getElementById('win');
+    var lose_para = document.getElementById('lost'); 
+    var draw_para = document.getElementById('draw');
+    var temp = document.getElementById('temp');
+    win = 0;
+    draw = 0;
+    lose = 0;
+    win_para.innerHTML = "Win: " + win;
+    lose_para.innerHTML = "Lost: " + lose;
+    draw_para.innerHTML = "Draw: " + draw;
+    final.innerHTML="";
+}
 
-
-        }
         
 
     </script>
@@ -132,6 +133,10 @@ img
             opacity:0.9;
         }
 #temp{
+    text-align:center;
+}
+#final
+{
     text-align:center;
 }
     </style>
