@@ -49,16 +49,17 @@
                  win_para.innerHTML = "Win: " + win;
                 lose_para.innerHTML = "Lost: " + lose; 
             }
-            if (win>=5)
-        {
-            final.innerHTML="you won the match";
-        }
-        else if(lose>=5)
-        {
-            final.innerHtML="You lose the math";
-        }
-        }
-        function reset_score() {
+       
+    if (win === 5) {
+        final.innerHTML = "You won the match";
+        
+    } else if (lose === 5) {
+        final.innerHTML = "You lose the match";
+        
+    }
+}
+
+ function reset_score() {
     var win_para = document.getElementById('win');
     var lose_para = document.getElementById('lost'); 
     var draw_para = document.getElementById('draw');
@@ -76,6 +77,7 @@
 
     </script>
     <style>
+
         body {
             background-color: #51e2f5;
         }
@@ -117,7 +119,7 @@ img
             justify-content:center;
             align-items:center;
             flex-direction:row;
-            margin-top:50px;
+            margin-top:20px;
            
         }
         .reset-button
@@ -136,8 +138,10 @@ img
     text-align:center;
 }
 #final
-{
+{  margin:0;
     text-align:center;
+    font-size:4vh;
+    
 }
     </style>
 </head>
@@ -158,7 +162,9 @@ img
     <p id="win">Win: 0</p>
     <p id="lost">Lost: 0</p>
     <p id="draw">Draw: 0</p>
+   
    </div> 
-<p id="final"></p>
+   <p id="final"><br></p>
+
 </body>
 </html>
